@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: configserver
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+
+#  profiles:
+##    active:
+  datasource:
+    url: jdbc:mysql://localhost:3306/configdb
+    username: root
+    password: BINDE5243
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  #  cloud:
+  #    config:
+  #      server:
+  #        git:
+  #          uri: https://github.com/binde318/app-configuration
+#  cloud:
+#    config:
+#      server:
+#        jdbc:
+#          sql: SELECT property_key, property_value from application_config_properties where application_name =? and profile=? and label =?
+#          default-label: main
+server:
+  port: 8888
+#encrypt:
+#  key: "0E329232EA6D0D73"
+
+
+
+
